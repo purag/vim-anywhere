@@ -48,18 +48,18 @@ var vim = new function () {
         
       /* 'G' - scroll to the bottom of the page */
       case "G":
-      	window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, document.body.scrollHeight);
         break;
         
       /* 'gg' - scroll to the top of the page */
       case "g":
-      	if (last == 71) {
-        	window.scrollTo(0, 0);
+        if (last == 71) {
+          window.scrollTo(0, 0);
         } else {
-  				last = 71;
+          last = 71;
           resetLast = false;
         }
-      	break;
+        break;
     }
     
     if (resetLast) last = 0;
@@ -71,7 +71,7 @@ var vim = new function () {
    * When enter is pressed, process the command
    */
   input.addEventListener("keydown", function(e) {
-  	e.stopPropagation();
+    e.stopPropagation();
     command = input.value;
     if (e.keyCode == 13) this.processCommand();
   }.bind(this));
@@ -92,7 +92,7 @@ window.addEventListener("keydown", function (e) {
   } else {
     /* '/' - initiate search command entry */
     if (k == 191) {
-    	vim.initCommand();
+      vim.initCommand();
     } else {
       vim.processCommand(String.fromCharCode(k).toLowerCase());
     }
